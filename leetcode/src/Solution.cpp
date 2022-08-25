@@ -1,6 +1,6 @@
 #include "Solution.h"
 
-int Solution::something(int input)
+int Solution::test(int input)
 {
     return input + 1;
 }

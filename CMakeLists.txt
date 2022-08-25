@@ -15,4 +15,5 @@ else()
 endif()
 
 
-add_subdirectory(example)
+add_subdirectory(leetcode)
+add_subdirectory(test)
