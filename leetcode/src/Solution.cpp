@@ -1,4 +1,7 @@
 #include "Solution.h"
+#include <unordered_map>
+
+using std::unordered_map;
 
 int Solution::test(int input)
 {
@@ -18,4 +21,19 @@ vector<int> Solution::twoSum(vector<int>& numbers, int target)
             left++;
     }
     return {left + 1, right + 1};
+}
+
+vector<int> Solution::twoSum_map(vector<int>& numbers, int target)
+{
+    unordered_map<int, int> data;
+    for (int i = 0; i < numbers.size(); i++)
+    {
+        auto another_target = target - numbers[i];
+        if (data.find(another_target) != data.end())
+        {
+            return {data[another_target] + 1, i + 1};
+        }
+        data[numbers[i]] = i;
+    }
+    return {};
 }
