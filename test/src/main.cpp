@@ -22,6 +22,14 @@ TEST(MyTest, twoSum)
     EXPECT_EQ(ans[1], 2);
 }
 
+TEST(MyTest, judgeSquareSum)
+{
+    EXPECT_EQ(Solution::judgeSquareSum(2), true);
+    EXPECT_EQ(Solution::judgeSquareSum(3), false);
+    EXPECT_EQ(Solution::judgeSquareSum(4), true);
+    EXPECT_EQ(Solution::judgeSquareSum(2147482647), false);
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);

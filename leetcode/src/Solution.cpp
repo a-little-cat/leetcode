@@ -1,4 +1,5 @@
 #include "Solution.h"
+#include <cmath>
 #include <unordered_map>
 
 using std::unordered_map;
@@ -36,4 +37,21 @@ vector<int> Solution::twoSum_map(vector<int>& numbers, int target)
         data[numbers[i]] = i;
     }
     return {};
+}
+
+bool Solution::judgeSquareSum(int c)
+{
+    int left = 0;
+    int right = static_cast<int>(sqrt(c));
+    while (left <= right)
+    {
+        int cur_pow = pow(left, 2) + pow(right, 2);
+        if (cur_pow == c)
+            return true;
+        if (cur_pow > c)
+            right--;
+        else
+            left++;
+    }
+    return false;
 }
