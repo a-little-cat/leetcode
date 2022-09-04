@@ -1,8 +1,11 @@
 #include "Solution.h"
+#include <cctype>
 #include <cmath>
 #include <unordered_map>
 
 using std::unordered_map;
+using std::tolower;
+using std::swap;
 
 int Solution::test(int input)
 {
@@ -54,4 +57,37 @@ bool Solution::judgeSquareSum(int c)
             left++;
     }
     return false;
+}
+
+bool isVowel(char c)
+{
+    int f[26] = {0};
+    f['a' - 'a'] = 1;
+    f['e' - 'a'] = 1;
+    f['i' - 'a'] = 1;
+    f['o' - 'a'] = 1;
+    f['u' - 'a'] = 1;
+    c = tolower(c);
+    if ((c - 'a') < 0 || (c - 'a') > 25)
+        return false;
+    return f[c - 'a'];
+}
+
+string Solution::reverseVowels(string s)
+{
+    int left = 0;
+    int right = static_cast<int>(s.size() - 1);
+    while (true)
+    {
+        while (left < s.size() && !isVowel(s[left]))
+            left++;
+        while (right >= 0 && !isVowel(s[right]))
+            right--;
+        if (left >= right)
+            break;
+        swap(s[left], s[right]);
+        left++;
+        right--;
+    }
+    return s;
 }

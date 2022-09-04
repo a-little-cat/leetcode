@@ -30,6 +30,15 @@ TEST(MyTest, judgeSquareSum)
     EXPECT_EQ(Solution::judgeSquareSum(2147482647), false);
 }
 
+TEST(MyTest, reverseVowels)
+{
+    EXPECT_EQ(Solution::reverseVowels("abcde"), "ebcda");
+    EXPECT_EQ(Solution::reverseVowels("hello"), "holle");
+    EXPECT_EQ(Solution::reverseVowels("leetcode"), "leotcede");
+    EXPECT_EQ(Solution::reverseVowels(" "), " ");
+    EXPECT_EQ(Solution::reverseVowels("a."), "a.");
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
