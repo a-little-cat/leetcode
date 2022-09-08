@@ -39,6 +39,22 @@ TEST(MyTest, reverseVowels)
     EXPECT_EQ(Solution::reverseVowels("a."), "a.");
 }
 
+TEST(MyTest, search)
+{
+    vector<int> nums = {-1, 0, 3, 5, 9, 12};
+    int target = 9;
+    EXPECT_EQ(Solution::search(nums, target), 4);
+}
+TEST(MyTest, searchInsert)
+{
+    vector<int> nums;
+    int target = 0;
+
+    nums = {-1, 0, 3, 5, 9, 12};
+    target = 1;
+    EXPECT_EQ(Solution::searchInsert(nums, target), 2);
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);

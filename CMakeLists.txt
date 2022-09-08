@@ -1,19 +1,20 @@
 project(leetcode)
 cmake_minimum_required(VERSION 3.16)
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release)
-    message("CMAKE_BUILD_TYPE is " ${CMAKE_BUILD_TYPE})
+  set(CMAKE_BUILD_TYPE Release)
+  message("CMAKE_BUILD_TYPE is " ${CMAKE_BUILD_TYPE})
 else()
-    message("CMAKE_BUILD_TYPE is " ${CMAKE_BUILD_TYPE})
+  message("CMAKE_BUILD_TYPE is " ${CMAKE_BUILD_TYPE})
 endif()
 
 if(NOT CMAKE_EXPORT_COMPILE_COMMANDS)
-    set(CMAKE_EXPORT_COMPILE_COMMANDS true)
-    message("CMAKE_EXPORT_COMPILE_COMMANDS is " ${CMAKE_EXPORT_COMPILE_COMMANDS})
+  set(CMAKE_EXPORT_COMPILE_COMMANDS true)
+  message("CMAKE_EXPORT_COMPILE_COMMANDS is " ${CMAKE_EXPORT_COMPILE_COMMANDS})
 else()
-    message("CMAKE_EXPORT_COMPILE_COMMANDS is " ${CMAKE_EXPORT_COMPILE_COMMANDS})
+  message("CMAKE_EXPORT_COMPILE_COMMANDS is " ${CMAKE_EXPORT_COMPILE_COMMANDS})
 endif()
-
 
 add_subdirectory(leetcode)
 add_subdirectory(test)
+
+add_executable(niuke niuke.cpp)

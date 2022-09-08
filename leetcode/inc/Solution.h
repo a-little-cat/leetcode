@@ -11,4 +11,6 @@ public:
     static vector<int> twoSum_map(vector<int>& numbers, int target);
     static bool judgeSquareSum(int c);
     static string reverseVowels(string s);
+    static int search(vector<int>& nums, int target);
+    static int searchInsert(vector<int>& nums, int target);
 };
