@@ -1,27 +1,29 @@
+#include <algorithm>
 #include <cctype>
 #include <iostream>
+#include <set>
 #include <string>
+#include <vector>
 
 using namespace std;
 
 int main()
 {
-    string input;
-    cin >> input;
+    int n;
+    cin >> n;
 
-    int table[26] = {2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9};
-
-    string output;
-    for (auto c : input)
+    vector<int> output(1);
+    cin >> output[0];
+    for (int i = 0; i < n - 1; i++)
     {
-        if (c >= 'a' && c <= 'z')
-            output += table[c - 'a'] + '0';
-        else if (c >= 'A' && c <= 'Y')
-            output += tolower(c) + 1;
-        else if (c == 'Z')
-            output += 'a';
-        else
-            output += c;
+        int data = 0;
+        int index = 0;
+        cin >> data >> index;
+        output.insert(find(output.begin(), output.end(), index) + 1, data);
     }
-    cout << output << endl;
+    cin >> n;
+    for (auto i : output)
+        if (i - n)
+            cout << i << " ";
+    cout << endl;
 }
