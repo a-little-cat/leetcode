@@ -1,7 +1,10 @@
 #include "Solution.h"
+#include <gmock/gmock-matchers.h>
+#include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <iostream>
 #include <numeric>
+using ::testing::ElementsAre;
 
 TEST(MyTest, test)
 {
@@ -53,6 +56,13 @@ TEST(MyTest, searchInsert)
     nums = {-1, 0, 3, 5, 9, 12};
     target = 1;
     EXPECT_EQ(Solution::searchInsert(nums, target), 2);
+}
+
+TEST(MyTest, mergeSort)
+{
+    vector<int> nums = {3, 0, -1, 5, 9, 12};
+    Solution::sort(nums);
+    EXPECT_THAT(nums, ElementsAre(-1, 0, 3, 5, 9, 12));
 }
 
 int main(int argc, char* argv[])

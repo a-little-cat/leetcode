@@ -1,4 +1,5 @@
 #include "Solution.h"
+#include <algorithm>
 #include <cctype>
 #include <cmath>
 #include <unordered_map>
@@ -117,7 +118,7 @@ int Solution::searchInsert(vector<int>& nums, int target)
     while (left <= right)
     {
         int mid = left + (right - left) / 2;
-        printf("left:%3dright:%3dmid:%3d\n", left, right, mid);
+        // printf("left:%3dright:%3dmid:%3d\n", left, right, mid);
         if (nums[mid] < target)
             left = mid + 1;
         else if (nums[mid] > target)
@@ -127,4 +128,41 @@ int Solution::searchInsert(vector<int>& nums, int target)
     }
 
     return left;
+}
+
+void merge(vector<int>& nums, vector<int>& tmp, int left, int mid, int right)
+{
+    int i = left, j = mid + 1, k = left;
+    while (i <= mid && j <= right)
+        if (nums[i] >= nums[j])
+            tmp[k++] = nums[j++];
+        else
+            tmp[k++] = nums[i++];
+    while (i <= mid)
+        tmp[k++] = nums[i++];
+    while (j <= right)
+        tmp[k++] = nums[j++];
+
+    for (int i = left; i <= right; i++)
+        nums[i] = tmp[i];
+
+    return;
+}
+
+void mergeSort(vector<int>& nums, vector<int>& tmp, int left, int right)
+{
+    if (left < right)
+    {
+        int mid = left + (right - left) / 2;
+        mergeSort(nums, tmp, left, mid);
+        mergeSort(nums, tmp, mid + 1, right);
+        merge(nums, tmp, left, mid, right);
+    }
+}
+
+int Solution::sort(vector<int>& nums)
+{
+    vector<int> tmp(nums.size());
+    mergeSort(nums, tmp, 0, nums.size() - 1);
+    return 0;
 }
