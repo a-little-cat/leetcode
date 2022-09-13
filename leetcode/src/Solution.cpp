@@ -3,6 +3,7 @@
 #include <cctype>
 #include <cmath>
 #include <unordered_map>
+#include <vector>
 
 using std::unordered_map;
 using std::tolower;
@@ -132,21 +133,21 @@ int Solution::searchInsert(vector<int>& nums, int target)
 
 void merge(vector<int>& nums, vector<int>& tmp, int left, int mid, int right)
 {
-    int i = left, j = mid + 1, k = left;
+    int i = left;
+    int j = mid + 1;
+    int k = left;
     while (i <= mid && j <= right)
-        if (nums[i] >= nums[j])
-            tmp[k++] = nums[j++];
-        else
+        if (nums[i] < nums[j])
             tmp[k++] = nums[i++];
-    while (i <= mid)
+        else
+            tmp[k++] = nums[j++];
+    for (; i <= mid;)
         tmp[k++] = nums[i++];
-    while (j <= right)
+    for (; j <= right;)
         tmp[k++] = nums[j++];
 
-    for (int i = left; i <= right; i++)
-        nums[i] = tmp[i];
-
-    return;
+    for (; left <= right; left++)
+        nums[left] = tmp[left];
 }
 
 void mergeSort(vector<int>& nums, vector<int>& tmp, int left, int right)
