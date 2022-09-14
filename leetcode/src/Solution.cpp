@@ -151,20 +151,20 @@ void merge(vector<int>& nums, vector<int>& tmp, int left, int mid, int right)
         nums[i] = tmp[i];
 }
 
-void mergeSort(vector<int>& nums, vector<int>& tmp, int left, int right)
+void mergeSort_(vector<int>& nums, vector<int>& tmp, int left, int right)
 {
     if (left < right)
     {
         int mid = left + (right - left) / 2;
-        mergeSort(nums, tmp, left, mid);
-        mergeSort(nums, tmp, mid + 1, right);
+        mergeSort_(nums, tmp, left, mid);
+        mergeSort_(nums, tmp, mid + 1, right);
         merge(nums, tmp, left, mid, right);
     }
 }
 
-int Solution::sort(vector<int>& nums)
+int Solution::mergeSort(vector<int>& nums)
 {
     vector<int> tmp(nums.size());
-    mergeSort(nums, tmp, 0, nums.size() - 1);
+    mergeSort_(nums, tmp, 0, nums.size() - 1);
     return 0;
 }

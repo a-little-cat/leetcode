@@ -13,5 +13,5 @@ public:
     static string reverseVowels(string s);
     static int search(vector<int>& nums, int target);
     static int searchInsert(vector<int>& nums, int target);
-    static int sort(vector<int>& nums);
+    static int mergeSort(vector<int>& nums);
 };
