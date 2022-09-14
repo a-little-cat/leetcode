@@ -141,13 +141,14 @@ void merge(vector<int>& nums, vector<int>& tmp, int left, int mid, int right)
             tmp[k++] = nums[i++];
         else
             tmp[k++] = nums[j++];
-    for (; i <= mid;)
+
+    while (i <= mid)
         tmp[k++] = nums[i++];
-    for (; j <= right;)
+    while (j <= right)
         tmp[k++] = nums[j++];
 
-    for (; left <= right; left++)
-        nums[left] = tmp[left];
+    for (i = left; i <= right; i++)
+        nums[i] = tmp[i];
 }
 
 void mergeSort(vector<int>& nums, vector<int>& tmp, int left, int right)
