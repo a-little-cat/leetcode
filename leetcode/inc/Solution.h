@@ -16,4 +16,5 @@ public:
     static int mergeSort(vector<int>& nums);
     static int quickSort(vector<int>& nums);
     static int longestCommonSubsequence(string text1, string text2);
+    static string lCS(string text1, string text2);
 };

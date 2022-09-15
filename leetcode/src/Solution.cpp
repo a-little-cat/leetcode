@@ -219,3 +219,25 @@ int Solution::longestCommonSubsequence(string text1, string text2)
     }
     return dp[text2.size()];
 }
+
+string Solution::lCS(string text1, string text2)
+{
+    vector<vector<int>> dp(text1.size() + 1, vector<int>(text2.size() + 1, 0));
+    int index = -1;
+    int max_length = -1;
+    for (int i = 1; i <= text1.size(); i++)
+        for (int j = 1; j <= text2.size(); j++)
+            if (text1[i - 1] == text2[j - 1])
+            {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+                if (dp[i][j] > max_length)
+                {
+                    max_length = dp[i][j];
+                    index = i - max_length;
+                }
+            }
+            else
+                dp[i][j] = 0;
+
+    return text1.substr(index, max_length);
+}

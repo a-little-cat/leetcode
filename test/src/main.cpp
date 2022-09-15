@@ -79,6 +79,11 @@ TEST(MyTest, longestCommonSubsequence)
     EXPECT_EQ(Solution::longestCommonSubsequence("abcba", "abcbcba"), 5);
 }
 
+TEST(MyTest, lCS)
+{
+    EXPECT_EQ(Solution::lCS("babce", "abc"), "abc");
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
