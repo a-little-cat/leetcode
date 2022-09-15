@@ -114,6 +114,32 @@ int Solution::search(vector<int>& nums, int target)
     return -1;
 }
 
+int Solution::searchRotate(vector<int>& nums, int target)
+{
+    int left = 0;
+    int right = nums.size() - 1;
+    while (left <= right)
+    {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target)
+            return mid;
+
+        if (nums[mid] > nums[right])
+            if (nums[left] <= target && target <= nums[mid])
+                right = mid - 1;
+            else
+                left = mid + 1;
+        else
+        {
+            if (nums[mid] <= target && target <= nums[right])
+                left = mid + 1;
+            else
+                right = mid - 1;
+        }
+    }
+    return -1;
+}
+
 int Solution::searchInsert(vector<int>& nums, int target)
 {
     int left = 0;
@@ -255,4 +281,34 @@ int Solution::findMin(vector<int>& nums)
             right = mid;
     }
     return nums[left];
+}
+
+int Solution::findMin2(vector<int>& nums)
+{
+    int left = 0;
+    int right = nums.size() - 1;
+    while (left < right)
+    {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] > nums[right])
+            left = mid + 1;
+        else if (nums[mid] < nums[right])
+            right = mid;
+        else
+            right--;
+    }
+    return nums[left];
+}
+
+ListNode* Solution::reverseList(ListNode* head)
+{
+    ListNode *prev = NULL, *next = NULL, *cur = head;
+    while (cur)
+    {
+        next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+    }
+    return prev;
 }

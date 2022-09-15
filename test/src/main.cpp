@@ -48,6 +48,18 @@ TEST(MyTest, search)
     int target = 9;
     EXPECT_EQ(Solution::search(nums, target), 4);
 }
+
+TEST(MyTest, searchRotate)
+{
+    vector<int> nums;
+    nums = {4, 5, 6, 7, 0, 1, 2};
+    EXPECT_EQ(Solution::searchRotate(nums, 0), 4);
+    nums = {4, 5, 6, 7, 0, 1, 2};
+    EXPECT_EQ(Solution::searchRotate(nums, 3), -1);
+    nums = {1};
+    EXPECT_EQ(Solution::searchRotate(nums, 0), -1);
+}
+
 TEST(MyTest, searchInsert)
 {
     vector<int> nums;
@@ -93,6 +105,15 @@ TEST(MyTest, findMin)
     EXPECT_EQ(Solution::findMin(nums), 0);
     nums = {11, 13, 15, 17};
     EXPECT_EQ(Solution::findMin(nums), 11);
+}
+
+TEST(MyTest, findMin2)
+{
+    vector<int> nums;
+    nums = {1, 3, 5};
+    EXPECT_EQ(Solution::findMin2(nums), 1);
+    nums = {2, 2, 2, 0, 1};
+    EXPECT_EQ(Solution::findMin2(nums), 0);
 }
 
 int main(int argc, char* argv[])
