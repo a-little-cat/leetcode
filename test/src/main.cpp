@@ -84,6 +84,17 @@ TEST(MyTest, lCS)
     EXPECT_EQ(Solution::lCS("babce", "abc"), "abc");
 }
 
+TEST(MyTest, findMin)
+{
+    vector<int> nums;
+    nums = {3, 4, 5, 1, 2};
+    EXPECT_EQ(Solution::findMin(nums), 1);
+    nums = {4, 5, 6, 7, 0, 1, 2};
+    EXPECT_EQ(Solution::findMin(nums), 0);
+    nums = {11, 13, 15, 17};
+    EXPECT_EQ(Solution::findMin(nums), 11);
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
