@@ -168,3 +168,30 @@ int Solution::mergeSort(vector<int>& nums)
     mergeSort_(nums, tmp, 0, nums.size() - 1);
     return 0;
 }
+
+int quick(vector<int>& nums, int left, int right)
+{
+    int out = left;
+    int left_index = left + 1;
+    for (int i = left + 1; i <= right; i++)
+        if (nums[i] < nums[out])
+            swap(nums[i], nums[left_index++]);
+    swap(nums[out], nums[left_index - 1]);
+    return left_index - 1;
+}
+
+void quickSort_(vector<int>& nums, int left, int right)
+{
+    if (left < right)
+    {
+        int index = quick(nums, left, right);
+        quickSort_(nums, left, index - 1);
+        quickSort_(nums, index + 1, right);
+    }
+}
+
+int Solution::quickSort(vector<int>& nums)
+{
+    quickSort_(nums, 0, nums.size() - 1);
+    return 0;
+}

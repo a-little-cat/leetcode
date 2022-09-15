@@ -61,8 +61,15 @@ TEST(MyTest, searchInsert)
 TEST(MyTest, mergeSort)
 {
     vector<int> nums = {3, 0, -1, 5, 9, 12};
-    Solution::sort(nums);
+    Solution::mergeSort(nums);
     EXPECT_THAT(nums, ElementsAre(-1, 0, 3, 5, 9, 12));
+}
+
+TEST(MyTest, quickSort)
+{
+    vector<int> nums = {47, 29, 71, 99, 78, 19, 24, 47};
+    Solution::quickSort(nums);
+    EXPECT_THAT(nums, ElementsAre(0, 1, 2, 3, 4, 5, 6));
 }
 
 int main(int argc, char* argv[])

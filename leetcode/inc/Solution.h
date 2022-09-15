@@ -14,4 +14,5 @@ public:
     static int search(vector<int>& nums, int target);
     static int searchInsert(vector<int>& nums, int target);
     static int mergeSort(vector<int>& nums);
+    static int quickSort(vector<int>& nums);
 };
