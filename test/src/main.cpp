@@ -69,7 +69,14 @@ TEST(MyTest, quickSort)
 {
     vector<int> nums = {47, 29, 71, 99, 78, 19, 24, 47};
     Solution::quickSort(nums);
-    EXPECT_THAT(nums, ElementsAre(0, 1, 2, 3, 4, 5, 6));
+    EXPECT_THAT(nums, ElementsAre(19, 24, 29, 47, 47, 71, 78, 99));
+}
+
+TEST(MyTest, longestCommonSubsequence)
+{
+    EXPECT_EQ(Solution::longestCommonSubsequence("abcde", "ace"), 3);
+    EXPECT_EQ(Solution::longestCommonSubsequence("abc", "def"), 0);
+    EXPECT_EQ(Solution::longestCommonSubsequence("abcba", "abcbcba"), 5);
 }
 
 int main(int argc, char* argv[])

@@ -8,6 +8,8 @@
 using std::unordered_map;
 using std::tolower;
 using std::swap;
+using std::max;
+using std::min;
 
 int Solution::test(int input)
 {
@@ -194,4 +196,26 @@ int Solution::quickSort(vector<int>& nums)
 {
     quickSort_(nums, 0, nums.size() - 1);
     return 0;
+}
+
+int Solution::longestCommonSubsequence(string text1, string text2)
+{
+    int dp[text2.size() + 1];
+    for (int i = 0; i < text2.size() + 1; i++)
+        dp[i] = 0;
+
+    for (int i = 0; i < text1.size(); i++)
+    {
+        int upleft = dp[0];
+        for (int j = 1; j < text2.size() + 1; j++)
+        {
+            int tmp = dp[j];
+            if (text1[i] == text2[j - 1])
+                dp[j] = upleft + 1;
+            else
+                dp[j] = max(dp[j], dp[j - 1]);
+            upleft = tmp;
+        }
+    }
+    return dp[text2.size()];
 }

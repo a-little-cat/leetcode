@@ -34,7 +34,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/test/test",
             "args": [
-                "--gtest_filter=MyTest.quickSort"
+                "--gtest_filter=MyTest.longestCommonSubsequence"
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}/build",
