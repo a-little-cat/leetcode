@@ -45,4 +45,5 @@ public:
     static int findMin2(vector<int>& nums);
     static ListNode* reverseList(ListNode* head);
     static int findKth(vector<int>& nums, int k);
+    static bool isValid(string s);
 };

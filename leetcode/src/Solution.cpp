@@ -4,6 +4,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <iostream>
+#include <stack>
 #include <unordered_map>
 #include <vector>
 
@@ -14,6 +15,7 @@ using std::max;
 using std::min;
 using std::cout;
 using std::endl;
+using std::stack;
 
 template <typename T>
 void print_vector(vector<T>& nums)
@@ -434,4 +436,25 @@ int Solution::findKth(vector<int>& nums, int k)
     int v = find_kth(nums, 0, nums.size() - 1, nums.size() - k);
     // printf("%d\n\n", v);
     return v;
+}
+
+bool Solution::isValid(string s)
+{
+    stack<char> a;
+    unordered_map<char, char> d;
+    d['('] = ')';
+    d['['] = ']';
+    d['{'] = '}';
+    for (auto c : s)
+    {
+        if (d.find(c) != d.end())
+            a.push(c);
+        else if (a.empty() || c != d[a.top()])
+            return false;
+        else
+            a.pop();
+    }
+    if (!a.empty())
+        return false;
+    return true;
 }

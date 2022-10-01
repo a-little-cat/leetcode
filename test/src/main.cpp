@@ -132,6 +132,14 @@ TEST(MyTest, findMin2)
     EXPECT_EQ(Solution::findMin2(nums), 0);
 }
 
+TEST(MyTest, isValid)
+{
+    EXPECT_EQ(Solution::isValid("()"), true);
+    EXPECT_EQ(Solution::isValid("()[]{}"), true);
+    EXPECT_EQ(Solution::isValid("(]"), false);
+    EXPECT_EQ(Solution::isValid("]"), false);
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
