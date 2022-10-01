@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cctype>
 #include <cmath>
+#include <cstdlib>
 #include <iostream>
 #include <unordered_map>
 #include <vector>
@@ -358,5 +359,38 @@ int Solution::quickSort_wiki(vector<int>& nums)
 {
     quickSort_wiki_(nums, 0, nums.size() - 1);
 
+    return 0;
+}
+
+void quickSort_oi_(vector<int>& nums, int left, int right)
+{
+    if (left < right)
+    {
+        // int pivot_value = nums[random() % (right - left) + left];
+        int pivot_value = nums[right];
+
+        int i = left;
+        int j = left;      // 第一个等于pivot_value的值
+        int k = right + 1; //第一个大于pilot_value的值
+        while (i < k)
+        {
+            if (nums[i] < pivot_value)
+                swap(nums[i++], nums[j++]);
+            else if (nums[i] > pivot_value)
+                swap(nums[i], nums[--k]);
+            else
+                i++;
+            print_vector<int>(nums);
+            printf("%d->%d %d->%d %d->%d\n\n", i, nums[i], j, nums[j], k - 1, nums[k - 1]);
+        }
+
+        quickSort_oi_(nums, left, j - 1);
+        quickSort_oi_(nums, k, right);
+    }
+}
+
+int Solution::quickSort_oi(vector<int>& nums)
+{
+    quickSort_oi_(nums, 0, nums.size() - 1);
     return 0;
 }

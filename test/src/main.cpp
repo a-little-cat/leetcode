@@ -77,19 +77,20 @@ TEST(MyTest, mergeSort)
     EXPECT_THAT(nums, ElementsAre(-1, 0, 3, 5, 9, 12));
 }
 
-TEST(MyTest, quickSort_wiki)
+TEST(MyTest, quickSort_oi)
 {
     vector<int> nums;
     nums = {47, 29, 71, 99, 78, 19, 24, 47};
-    Solution::quickSort_wiki(nums);
+    Solution::quickSort_oi(nums);
     EXPECT_THAT(nums, ElementsAre(19, 24, 29, 47, 47, 71, 78, 99));
     nums = {1, 2, 3, 4, 5};
-    Solution::quickSort_wiki(nums);
+    Solution::quickSort_oi(nums);
     EXPECT_THAT(nums, ElementsAre(1, 2, 3, 4, 5));
     nums = {2, 2, 2, 2};
-    Solution::quickSort_wiki(nums);
+    Solution::quickSort_oi(nums);
     EXPECT_THAT(nums, ElementsAre(2, 2, 2, 2));
 }
+
 
 TEST(MyTest, longestCommonSubsequence)
 {
