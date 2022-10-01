@@ -370,7 +370,7 @@ void quickSort_oi_(vector<int>& nums, int left, int right)
         int pivot_value = nums[right];
 
         int i = left;
-        int j = left;      // 第一个等于pivot_value的值
+        int j = left;      // 第一个大于等于pivot_value的值
         int k = right + 1; //第一个大于pilot_value的值
         while (i < k)
         {
@@ -393,4 +393,45 @@ int Solution::quickSort_oi(vector<int>& nums)
 {
     quickSort_oi_(nums, 0, nums.size() - 1);
     return 0;
+}
+
+int find_kth(vector<int>& nums, int left, int right, int kth)
+{
+    if (left >= right)
+        return nums[left];
+    int pivot_value = nums[random() % (right - right + 1) + left];
+    // int pivot_value = nums[left];
+    int i = left;
+    int j = left;
+    int k = right + 1;
+    //        j       i     k
+    // 小于v  等于v   未知  大于v
+    //        j         k
+    // 小于v  等于v     大于v
+    // printf("%d->%d  %d\n", left, right, kth);
+    while (i < k)
+    {
+        if (nums[i] < pivot_value)
+            swap(nums[i++], nums[j++]);
+        else if (nums[i] > pivot_value)
+            swap(nums[i], nums[--k]);
+        else
+            i++;
+        // print_vector(nums);
+    }
+    // printf("i %d j %d k %d  kth %d\n", i, j, k, kth);
+    if (kth < j)
+        return find_kth(nums, left, j - 1, kth);
+    else if (kth >= k)
+        return find_kth(nums, k, right, kth);
+    else
+        return pivot_value;
+}
+
+int Solution::findKth(vector<int>& nums, int k)
+{
+    // print_vector(nums);
+    int v = find_kth(nums, 0, nums.size() - 1, nums.size() - k);
+    // printf("%d\n\n", v);
+    return v;
 }

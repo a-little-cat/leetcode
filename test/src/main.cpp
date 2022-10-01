@@ -91,6 +91,14 @@ TEST(MyTest, quickSort_oi)
     EXPECT_THAT(nums, ElementsAre(2, 2, 2, 2));
 }
 
+TEST(MyTest, findKth)
+{
+    vector<int> nums;
+    nums = {1, 3, 5, 2, 2};
+    EXPECT_EQ(Solution::findKth(nums, 3), 2);
+    nums = {7, 10, 10, 5, 6, 4, 9, 9, 8, 3, 4, 2};
+    EXPECT_EQ(Solution::findKth(nums, 3), 9);
+}
 
 TEST(MyTest, longestCommonSubsequence)
 {

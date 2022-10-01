@@ -44,4 +44,5 @@ public:
     static int findMin(vector<int>& nums);
     static int findMin2(vector<int>& nums);
     static ListNode* reverseList(ListNode* head);
+    static int findKth(vector<int>& nums, int k);
 };
