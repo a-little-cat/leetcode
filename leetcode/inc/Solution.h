@@ -37,6 +37,7 @@ public:
     static int searchInsert(vector<int>& nums, int target);
     static int mergeSort(vector<int>& nums);
     static int quickSort(vector<int>& nums);
+    static int quickSort_wiki(vector<int>& nums);
     static int longestCommonSubsequence(string text1, string text2);
     static string lCS(string text1, string text2);
     static int findMin(vector<int>& nums);

@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cctype>
 #include <cmath>
+#include <iostream>
 #include <unordered_map>
 #include <vector>
 
@@ -10,6 +11,16 @@ using std::tolower;
 using std::swap;
 using std::max;
 using std::min;
+using std::cout;
+using std::endl;
+
+template <typename T>
+void print_vector(vector<T>& nums)
+{
+    for (auto num : nums)
+        cout << num << " ";
+    cout << endl;
+}
 
 int Solution::test(int input)
 {
@@ -302,7 +313,9 @@ int Solution::findMin2(vector<int>& nums)
 
 ListNode* Solution::reverseList(ListNode* head)
 {
-    ListNode *prev = NULL, *next = NULL, *cur = head;
+    ListNode* prev = NULL;
+    ListNode* cur = head;
+    ListNode* next = NULL;
     while (cur)
     {
         next = cur->next;
@@ -311,4 +324,39 @@ ListNode* Solution::reverseList(ListNode* head)
         cur = next;
     }
     return prev;
+}
+
+int partition(vector<int>& nums, int left, int right)
+{
+    int pivotIndex = random() % (right - left + 1) + left;
+    swap(nums[pivotIndex], nums[right]);
+
+    int storeIndex = left;
+    for (int i = left; i <= right - 1; i++)
+    {
+        printf("%d -> %d   %d -> %d\n", storeIndex, nums[storeIndex], i, nums[i]);
+        if (nums[i] < nums[right])
+            swap(nums[i], nums[storeIndex++]);
+        print_vector<int>(nums);
+    }
+    swap(nums[right], nums[storeIndex]);
+    print_vector<int>(nums);
+    return storeIndex;
+}
+
+void quickSort_wiki_(vector<int>& nums, int left, int right)
+{
+    if (left < right)
+    {
+        int pivotIndex = partition(nums, left, right);
+        quickSort_wiki_(nums, left, pivotIndex - 1);
+        quickSort_wiki_(nums, pivotIndex + 1, right);
+    }
+}
+
+int Solution::quickSort_wiki(vector<int>& nums)
+{
+    quickSort_wiki_(nums, 0, nums.size() - 1);
+
+    return 0;
 }

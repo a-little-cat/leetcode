@@ -17,4 +17,4 @@ endif()
 add_subdirectory(leetcode)
 add_subdirectory(test)
 
-add_executable(niuke niuke.cpp)
+# add_executable(main something/main.cpp)
