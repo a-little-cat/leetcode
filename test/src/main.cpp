@@ -153,6 +153,13 @@ TEST(MyTest, reverseList)
     print_listnode(Solution::reverseList_test(&a));
 }
 
+TEST(MyTest, mergeTwoLists)
+{
+    ListNode* l1 = vector_listnode({1, 2, 4});
+    ListNode* l2 = vector_listnode({1, 3, 4});
+    print_listnode(Solution::mergeTwoLists(l1, l2));
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);

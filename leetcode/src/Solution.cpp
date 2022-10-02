@@ -35,6 +35,18 @@ void print_listnode(ListNode* v)
     printf("null\n");
 }
 
+ListNode* vector_listnode(vector<int>&& nums)
+{
+    ListNode pre(-1);
+    ListNode* cur = &pre;
+    for (auto i : nums)
+    {
+        cur->next = new ListNode(i);
+        cur = cur->next;
+    }
+    return pre.next;
+}
+
 int Solution::test(int input)
 {
     return input + 1;
@@ -493,4 +505,27 @@ ListNode* Solution::getIntersectionNode(ListNode* headA, ListNode* headB)
         l2 = l2 == NULL ? headA : l2->next;
     }
     return l1;
+}
+
+ListNode* Solution::mergeTwoLists(ListNode* list1, ListNode* list2)
+{
+    ListNode prev(-1);
+    ListNode* cur = &prev;
+    while (list1 && list2)
+    {
+        if (list1->val < list2->val)
+        {
+            cur->next = list1;
+            cur = cur->next;
+            list1 = list1->next;
+        }
+        else
+        {
+            cur->next = list2;
+            cur = cur->next;
+            list2 = list2->next;
+        }
+    }
+    cur->next = list1 ? list1 : list2;
+    return prev.next;
 }

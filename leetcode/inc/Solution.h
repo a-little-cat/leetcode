@@ -25,6 +25,7 @@ struct ListNode
 };
 
 void print_listnode(ListNode* v);
+ListNode* vector_listnode(vector<int>&& nums);
 
 class Solution
 {
@@ -50,4 +51,5 @@ public:
     static int findKth(vector<int>& nums, int k);
     static bool isValid(string s);
     static ListNode* getIntersectionNode(ListNode* headA, ListNode* headB);
+    static ListNode* mergeTwoLists(ListNode* list1, ListNode* list2);
 };
