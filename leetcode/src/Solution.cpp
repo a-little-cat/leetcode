@@ -529,3 +529,16 @@ ListNode* Solution::mergeTwoLists(ListNode* list1, ListNode* list2)
     cur->next = list1 ? list1 : list2;
     return prev.next;
 }
+
+ListNode* Solution::deleteDuplicates(ListNode* head)
+{
+    ListNode* cur = head;
+    while (cur && cur->next)
+    {
+        if (cur->val == cur->next->val)
+            cur->next = cur->next->next;
+        else
+            cur = cur->next;
+    }
+    return head;
+}

@@ -34,7 +34,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/test/test",
             "args": [
-                "--gtest_filter=MyTest.mergeTwoLists"
+                "--gtest_filter=MyTest.deleteDuplicates"
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}/build",

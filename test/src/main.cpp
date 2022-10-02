@@ -160,6 +160,11 @@ TEST(MyTest, mergeTwoLists)
     print_listnode(Solution::mergeTwoLists(l1, l2));
 }
 
+TEST(MyTest, deleteDuplicates)
+{
+    print_listnode(Solution::deleteDuplicates(vector_listnode({1, 1, 1})));
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
