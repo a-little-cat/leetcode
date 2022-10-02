@@ -53,4 +53,5 @@ public:
     static ListNode* getIntersectionNode(ListNode* headA, ListNode* headB);
     static ListNode* mergeTwoLists(ListNode* list1, ListNode* list2);
     static ListNode* deleteDuplicates(ListNode* head);
+    static ListNode* removeNthFromEnd(ListNode* head, int n);
 };

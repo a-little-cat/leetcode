@@ -165,6 +165,12 @@ TEST(MyTest, deleteDuplicates)
     print_listnode(Solution::deleteDuplicates(vector_listnode({1, 1, 1})));
 }
 
+TEST(MyTest, removeNthFromEnd)
+{
+    print_listnode(Solution::removeNthFromEnd(vector_listnode({1}), 1));
+    print_listnode(Solution::removeNthFromEnd(vector_listnode({1, 2, 3, 4, 5}), 2));
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);

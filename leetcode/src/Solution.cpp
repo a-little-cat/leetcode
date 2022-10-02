@@ -4,6 +4,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <iostream>
+#include <ranges>
 #include <stack>
 #include <unordered_map>
 #include <vector>
@@ -16,6 +17,7 @@ using std::min;
 using std::cout;
 using std::endl;
 using std::stack;
+using std::views::iota;
 
 template <typename T>
 void print_vector(vector<T>& nums)
@@ -541,4 +543,18 @@ ListNode* Solution::deleteDuplicates(ListNode* head)
             cur = cur->next;
     }
     return head;
+}
+ListNode* Solution::removeNthFromEnd(ListNode* head, int n)
+{
+    ListNode pre(-1, head);
+    ListNode* fast = &pre;
+    ListNode* slow = &pre;
+    for (auto i : iota(0, n))
+        fast = fast->next;
+    while (fast->next)
+        fast = fast->next, slow = slow->next;
+
+    slow->next = slow->next->next;
+
+    return pre.next;
 }
