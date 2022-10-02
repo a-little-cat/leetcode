@@ -140,6 +140,19 @@ TEST(MyTest, isValid)
     EXPECT_EQ(Solution::isValid("]"), false);
 }
 
+TEST(MyTest, reverseList)
+{
+    ListNode a(1);
+    ListNode* cur = &a;
+    for (int i = 2; i < 6; i++)
+    {
+        cur->next = new ListNode(i);
+        cur = cur->next;
+    }
+    print_listnode(&a);
+    print_listnode(Solution::reverseList_test(&a));
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);

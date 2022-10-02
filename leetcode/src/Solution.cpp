@@ -25,6 +25,16 @@ void print_vector(vector<T>& nums)
     cout << endl;
 }
 
+void print_listnode(ListNode* v)
+{
+    while (v)
+    {
+        printf("%d -> ", v->val);
+        v = v->next;
+    }
+    printf("null\n");
+}
+
 int Solution::test(int input)
 {
     return input + 1;
@@ -457,4 +467,30 @@ bool Solution::isValid(string s)
     if (!a.empty())
         return false;
     return true;
+}
+
+ListNode* Solution::reverseList_test(ListNode* head)
+{
+    ListNode node(-1);
+    ListNode* prev = &node;
+    while (head)
+    {
+        ListNode* next = head->next;
+        head->next = prev->next;
+        prev->next = head;
+        head = next;
+    }
+    return node.next;
+}
+
+ListNode* Solution::getIntersectionNode(ListNode* headA, ListNode* headB)
+{
+    ListNode* l1 = headA;
+    ListNode* l2 = headB;
+    while (l1 != l2)
+    {
+        l1 = l1 == NULL ? headB : l1->next;
+        l2 = l2 == NULL ? headA : l2->next;
+    }
+    return l1;
 }

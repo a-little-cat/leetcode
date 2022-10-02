@@ -24,6 +24,8 @@ struct ListNode
     }
 };
 
+void print_listnode(ListNode* v);
+
 class Solution
 {
 public:
@@ -44,6 +46,8 @@ public:
     static int findMin(vector<int>& nums);
     static int findMin2(vector<int>& nums);
     static ListNode* reverseList(ListNode* head);
+    static ListNode* reverseList_test(ListNode* head);
     static int findKth(vector<int>& nums, int k);
     static bool isValid(string s);
+    static ListNode* getIntersectionNode(ListNode* headA, ListNode* headB);
 };
