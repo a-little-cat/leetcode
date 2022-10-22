@@ -55,5 +55,5 @@ public:
     static ListNode* deleteDuplicates(ListNode* head);
     static ListNode* removeNthFromEnd(ListNode* head, int n);
     static ListNode* swapPairs(ListNode* head);
-    static ListNode* reverseKGroup(ListNode* head);
+    static ListNode* reverseKGroup(ListNode* head, int k);
 };

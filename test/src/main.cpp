@@ -178,6 +178,12 @@ TEST(MyTest, swapPairs)
     print_listnode(Solution::swapPairs(vector_listnode({})));
 }
 
+TEST(MyTest, reverseKGroup)
+{
+    print_listnode(Solution::reverseKGroup(vector_listnode({1, 2, 3, 4, 5}), 2));
+    print_listnode(Solution::reverseKGroup(vector_listnode({1, 2, 3, 4, 5}), 3));
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);

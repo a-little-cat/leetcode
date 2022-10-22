@@ -494,9 +494,9 @@ ListNode* Solution::reverseList_test(ListNode* head)
         ListNode* next = cur->next;
         cur->next = prev->next;
         prev->next = cur;
+        cur = next;
 
-        end->next = next;
-        cur = end->next;
+        end->next = cur;
         // print_listnode(node.next);
     }
     return node.next;
@@ -581,4 +581,32 @@ ListNode* Solution::swapPairs(ListNode* head)
     return ret.next;
 }
 
-ListNode* Solution::reverseKGroup(ListNode* head) {}
+ListNode* Solution::reverseKGroup(ListNode* head, int k)
+{
+    ListNode ret(0, head);
+    ListNode* prev = &ret;
+    ListNode* end = head;
+    while (1)
+    {
+        int i = 0;
+        for (int i = 0; i < k; i++)
+            if (end == NULL)
+                return ret.next;
+            else
+                end = end->next;
+
+        ListNode* cur = prev->next;
+        ListNode* end = prev->next;
+        for (int i = 0; i < k; i++)
+        {
+            ListNode* next = cur->next;
+            cur->next = prev->next;
+            prev->next = cur;
+            cur = next;
+
+            end->next = next;
+        }
+        prev = end;
+    }
+    return ret.next;
+}
