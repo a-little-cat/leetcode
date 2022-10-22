@@ -171,6 +171,13 @@ TEST(MyTest, removeNthFromEnd)
     print_listnode(Solution::removeNthFromEnd(vector_listnode({1, 2, 3, 4, 5}), 2));
 }
 
+TEST(MyTest, swapPairs)
+{
+    print_listnode(Solution::swapPairs(vector_listnode({1, 2, 3, 4})));
+    print_listnode(Solution::swapPairs(vector_listnode({1})));
+    print_listnode(Solution::swapPairs(vector_listnode({})));
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);

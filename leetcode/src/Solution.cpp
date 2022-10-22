@@ -485,14 +485,19 @@ bool Solution::isValid(string s)
 
 ListNode* Solution::reverseList_test(ListNode* head)
 {
-    ListNode node(-1);
+    ListNode node(-1, head);
     ListNode* prev = &node;
-    while (head)
+    ListNode* cur = head;
+    ListNode* end = head;
+    while (cur)
     {
-        ListNode* next = head->next;
-        head->next = prev->next;
-        prev->next = head;
-        head = next;
+        ListNode* next = cur->next;
+        cur->next = prev->next;
+        prev->next = cur;
+
+        end->next = next;
+        cur = end->next;
+        // print_listnode(node.next);
     }
     return node.next;
 }
@@ -558,3 +563,22 @@ ListNode* Solution::removeNthFromEnd(ListNode* head, int n)
 
     return pre.next;
 }
+
+ListNode* Solution::swapPairs(ListNode* head)
+{
+    ListNode ret(0, head);
+    ListNode* cur = &ret;
+    while (cur->next && cur->next->next)
+    {
+        ListNode* l1 = cur->next;
+        ListNode* l2 = l1->next;
+        ListNode* l3 = l2->next;
+        cur->next = l2;
+        l2->next = l1;
+        l1->next = l3;
+        cur = l1;
+    }
+    return ret.next;
+}
+
+ListNode* Solution::reverseKGroup(ListNode* head) {}

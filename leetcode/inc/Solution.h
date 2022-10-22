@@ -54,4 +54,6 @@ public:
     static ListNode* mergeTwoLists(ListNode* list1, ListNode* list2);
     static ListNode* deleteDuplicates(ListNode* head);
     static ListNode* removeNthFromEnd(ListNode* head, int n);
+    static ListNode* swapPairs(ListNode* head);
+    static ListNode* reverseKGroup(ListNode* head);
 };
