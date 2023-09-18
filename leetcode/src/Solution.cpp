@@ -54,32 +54,16 @@ int Solution::test(int input)
     return input + 1;
 }
 
-vector<int> Solution::twoSum(vector<int>& numbers, int target)
-{
-    int sum = 0;
-    int left = 0;
-    int right = static_cast<int>(numbers.size() - 1);
-    while (numbers[left] + numbers[right] != target)
-    {
-        if (numbers[left] + numbers[right] > target)
-            right--;
-        else
-            left++;
-    }
-    return {left + 1, right + 1};
-}
-
-vector<int> Solution::twoSum_map(vector<int>& numbers, int target)
+vector<int> Solution::twoSum(vector<int>&& nums, int target)
 {
     unordered_map<int, int> data;
-    for (int i = 0; i < numbers.size(); i++)
+    for (int i = 0; i < nums.size(); i++)
     {
-        auto another_target = target - numbers[i];
-        if (data.find(another_target) != data.end())
+        if (data.find(target - nums[i]) != data.end())
         {
-            return {data[another_target] + 1, i + 1};
+            return {data[target - nums[i]], i};
         }
-        data[numbers[i]] = i;
+        data[nums[i]] = i;
     }
     return {};
 }
@@ -397,7 +381,7 @@ void quickSort_oi_(vector<int>& nums, int left, int right)
 
         int i = left;
         int j = left;      // 第一个大于等于pivot_value的值
-        int k = right + 1; //第一个大于pilot_value的值
+        int k = right + 1; // 第一个大于pilot_value的值
         while (i < k)
         {
             if (nums[i] < pivot_value)
