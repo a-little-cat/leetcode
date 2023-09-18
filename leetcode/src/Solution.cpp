@@ -118,7 +118,7 @@ string Solution::reverseVowels(string s)
     return s;
 }
 
-int Solution::search(vector<int>& nums, int target)
+int Solution::search(vector<int>&& nums, int target)
 {
     int left = 0;
     int right = nums.size() - 1;
@@ -127,12 +127,11 @@ int Solution::search(vector<int>& nums, int target)
         int mid = left + (right - left) / 2;
         if (nums[mid] == target)
             return mid;
-        if (nums[mid] < target)
-            left = mid + 1;
-        else if (nums[mid] > target)
+        if (target < nums[mid])
             right = mid - 1;
+        else
+            left = mid + 1;
     }
-
     return -1;
 }
 

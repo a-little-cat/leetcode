@@ -4,6 +4,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <numeric>
+#include <utility>
 using ::testing::ElementsAre;
 
 TEST(MyTest, test)
@@ -14,10 +15,6 @@ TEST(MyTest, test)
 TEST(MyTest, twoSum)
 {
     EXPECT_THAT(Solution::twoSum({3, 2, 4}, 6), ElementsAre(1, 2));
-    // ans = Solution::twoSum_map(input, target);
-    // EXPECT_EQ(ans.size(), 2);
-    // EXPECT_EQ(ans[0], 1);
-    // EXPECT_EQ(ans[1], 2);
 }
 
 TEST(MyTest, judgeSquareSum)
@@ -39,9 +36,7 @@ TEST(MyTest, reverseVowels)
 
 TEST(MyTest, search)
 {
-    vector<int> nums = {-1, 0, 3, 5, 9, 12};
-    int target = 9;
-    EXPECT_EQ(Solution::search(nums, target), 4);
+    EXPECT_EQ(Solution::search({-1, 0, 3, 5, 9, 12}, 9), 4);
 }
 
 TEST(MyTest, searchRotate)
