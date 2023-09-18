@@ -41,13 +41,9 @@ TEST(MyTest, search)
 
 TEST(MyTest, searchRotate)
 {
-    vector<int> nums;
-    nums = {4, 5, 6, 7, 0, 1, 2};
-    EXPECT_EQ(Solution::searchRotate(nums, 0), 4);
-    nums = {4, 5, 6, 7, 0, 1, 2};
-    EXPECT_EQ(Solution::searchRotate(nums, 3), -1);
-    nums = {1};
-    EXPECT_EQ(Solution::searchRotate(nums, 0), -1);
+    EXPECT_EQ(Solution::searchRotate({4, 5, 6, 7, 0, 1, 2}, 0), 4);
+    EXPECT_EQ(Solution::searchRotate({4, 5, 6, 7, 0, 1, 2}, 3), -1);
+    EXPECT_EQ(Solution::searchRotate({1}, 0), -1);
 }
 
 TEST(MyTest, searchInsert)
