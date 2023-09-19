@@ -41,6 +41,7 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
+            "miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /bin/gdb -q --interpreter=mi",
             "setupCommands": [
                 {
                     "description": "为 gdb 启用整齐打印",
