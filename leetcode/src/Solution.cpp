@@ -321,17 +321,17 @@ int Solution::findMin2(vector<int>&& nums)
 
 ListNode* Solution::reverseList(ListNode* head)
 {
-    ListNode* prev = NULL;
-    ListNode* cur = head;
-    ListNode* next = NULL;
-    while (cur)
+    ListNode pre;
+    ListNode* cur = &pre;
+    ListNode* tmp;
+    while (head)
     {
-        next = cur->next;
-        cur->next = prev;
-        prev = cur;
-        cur = next;
+        tmp = head->next;
+        head->next = cur->next;
+        cur->next = head;
+        head = tmp;
     }
-    return prev;
+    return pre.next;
 }
 
 int partition(vector<int>& nums, int left, int right)

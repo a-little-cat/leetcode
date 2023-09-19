@@ -49,6 +49,7 @@ public:
     static int findMin(vector<int>&& nums);
     // https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
     static int findMin2(vector<int>&& nums);
+    // https://leetcode.com/problems/reverse-linked-list/
     static ListNode* reverseList(ListNode* head);
     static ListNode* reverseList_test(ListNode* head);
     static int findKth(vector<int>& nums, int k);

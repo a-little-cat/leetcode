@@ -34,7 +34,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/test/test",
             "args": [
-                "--gtest_filter=MyTest.findMin2"
+                "--gtest_filter=MyTest.reverseList"
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}/build",

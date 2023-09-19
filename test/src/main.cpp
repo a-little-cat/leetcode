@@ -125,15 +125,9 @@ TEST(MyTest, isValid)
 
 TEST(MyTest, reverseList)
 {
-    ListNode a(1);
-    ListNode* cur = &a;
-    for (int i = 2; i < 6; i++)
-    {
-        cur->next = new ListNode(i);
-        cur = cur->next;
-    }
-    print_listnode(&a);
-    print_listnode(Solution::reverseList_test(&a));
+    print_listnode(vector_listnode({1, 2, 3, 4, 5}));
+    print_listnode(Solution::reverseList(vector_listnode({1, 2, 3, 4, 5})));
+    print_listnode(Solution::reverseList_test(vector_listnode({1, 2, 3, 4, 5})));
 }
 
 TEST(MyTest, mergeTwoLists)
