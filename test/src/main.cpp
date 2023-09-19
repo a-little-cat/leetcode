@@ -101,13 +101,10 @@ TEST(MyTest, lCS)
 
 TEST(MyTest, findMin)
 {
-    vector<int> nums;
-    nums = {3, 4, 5, 1, 2};
-    EXPECT_EQ(Solution::findMin(nums), 1);
-    nums = {4, 5, 6, 7, 0, 1, 2};
-    EXPECT_EQ(Solution::findMin(nums), 0);
-    nums = {11, 13, 15, 17};
-    EXPECT_EQ(Solution::findMin(nums), 11);
+    EXPECT_EQ(Solution::findMin({5, 6, 1, 2, 3, 4}), 1);
+    EXPECT_EQ(Solution::findMin({3, 4, 5, 1, 2}), 1);
+    EXPECT_EQ(Solution::findMin({4, 5, 6, 7, 0, 1, 2}), 0);
+    EXPECT_EQ(Solution::findMin({11, 13, 15, 17}), 11);
 }
 
 TEST(MyTest, findMin2)
