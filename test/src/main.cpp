@@ -110,10 +110,9 @@ TEST(MyTest, findMin)
 TEST(MyTest, findMin2)
 {
     vector<int> nums;
-    nums = {1, 3, 5};
-    EXPECT_EQ(Solution::findMin2(nums), 1);
-    nums = {2, 2, 2, 0, 1};
-    EXPECT_EQ(Solution::findMin2(nums), 0);
+    EXPECT_EQ(Solution::findMin2({3, 3, 1, 3}), 1);
+    EXPECT_EQ(Solution::findMin2({1, 3, 5}), 1);
+    EXPECT_EQ(Solution::findMin2({2, 2, 2, 0, 1}), 0);
 }
 
 TEST(MyTest, isValid)

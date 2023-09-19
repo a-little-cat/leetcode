@@ -47,7 +47,8 @@ public:
     static string lCS(string text1, string text2);
     // https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
     static int findMin(vector<int>&& nums);
-    static int findMin2(vector<int>& nums);
+    // https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
+    static int findMin2(vector<int>&& nums);
     static ListNode* reverseList(ListNode* head);
     static ListNode* reverseList_test(ListNode* head);
     static int findKth(vector<int>& nums, int k);
