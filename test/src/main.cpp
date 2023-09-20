@@ -109,7 +109,6 @@ TEST(MyTest, findMin)
 
 TEST(MyTest, findMin2)
 {
-    vector<int> nums;
     EXPECT_EQ(Solution::findMin2({3, 3, 1, 3}), 1);
     EXPECT_EQ(Solution::findMin2({1, 3, 5}), 1);
     EXPECT_EQ(Solution::findMin2({2, 2, 2, 0, 1}), 0);
@@ -125,9 +124,7 @@ TEST(MyTest, isValid)
 
 TEST(MyTest, reverseList)
 {
-    print_listnode(vector_listnode({1, 2, 3, 4, 5}));
-    print_listnode(Solution::reverseList(vector_listnode({1, 2, 3, 4, 5})));
-    print_listnode(Solution::reverseList_test(vector_listnode({1, 2, 3, 4, 5})));
+    EXPECT_THAT(listnode_vector(Solution::reverseList(vector_listnode({1, 2, 3, 4, 5}))), ElementsAre(5, 4, 3, 2, 1));
 }
 
 TEST(MyTest, mergeTwoLists)

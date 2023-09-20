@@ -26,6 +26,7 @@ struct ListNode
 
 void print_listnode(ListNode* v);
 ListNode* vector_listnode(vector<int>&& nums);
+vector<int> listnode_vector(ListNode* head);
 
 class Solution
 {
@@ -51,7 +52,6 @@ public:
     static int findMin2(vector<int>&& nums);
     // https://leetcode.com/problems/reverse-linked-list/
     static ListNode* reverseList(ListNode* head);
-    static ListNode* reverseList_test(ListNode* head);
     static int findKth(vector<int>& nums, int k);
     static bool isValid(string s);
     static ListNode* getIntersectionNode(ListNode* headA, ListNode* headB);

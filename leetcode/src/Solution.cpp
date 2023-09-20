@@ -1,11 +1,13 @@
 #include "Solution.h"
 #include <algorithm>
 #include <cctype>
+#include <chrono>
 #include <cmath>
 #include <cstdlib>
 #include <iostream>
 #include <ranges>
 #include <stack>
+#include <thread>
 #include <unordered_map>
 #include <vector>
 
@@ -18,6 +20,7 @@ using std::cout;
 using std::endl;
 using std::stack;
 using std::views::iota;
+using std::chrono::seconds;
 
 template <typename T>
 void print_vector(vector<T>& nums)
@@ -47,6 +50,17 @@ ListNode* vector_listnode(vector<int>&& nums)
         cur = cur->next;
     }
     return pre.next;
+}
+
+vector<int> listnode_vector(ListNode* head)
+{
+    vector<int> result;
+    while (head)
+    {
+        result.push_back(head->val);
+        head = head->next;
+    }
+    return result;
 }
 
 int Solution::test(int input)
@@ -321,15 +335,14 @@ int Solution::findMin2(vector<int>&& nums)
 
 ListNode* Solution::reverseList(ListNode* head)
 {
-    ListNode pre;
+    ListNode pre(0);
     ListNode* cur = &pre;
-    ListNode* tmp;
     while (head)
     {
-        tmp = head->next;
+        ListNode* next = head->next;
         head->next = cur->next;
         cur->next = head;
-        head = tmp;
+        head = next;
     }
     return pre.next;
 }
@@ -462,25 +475,6 @@ bool Solution::isValid(string s)
     if (!a.empty())
         return false;
     return true;
-}
-
-ListNode* Solution::reverseList_test(ListNode* head)
-{
-    ListNode node(-1, head);
-    ListNode* prev = &node;
-    ListNode* cur = head;
-    ListNode* end = head;
-    while (cur)
-    {
-        ListNode* next = cur->next;
-        cur->next = prev->next;
-        prev->next = cur;
-        cur = next;
-
-        end->next = cur;
-        // print_listnode(node.next);
-    }
-    return node.next;
 }
 
 ListNode* Solution::getIntersectionNode(ListNode* headA, ListNode* headB)
