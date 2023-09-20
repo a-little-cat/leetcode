@@ -34,7 +34,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/test/test",
             "args": [
-                "--gtest_filter=MyTest.reverseList"
+                "--gtest_filter=MyTest.searchRotate"
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}/build",

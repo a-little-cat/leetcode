@@ -41,8 +41,8 @@ TEST(MyTest, search)
 
 TEST(MyTest, searchRotate)
 {
-    EXPECT_EQ(Solution::searchRotate({5, 1, 3}, 5), 0);
     EXPECT_EQ(Solution::searchRotate({4, 5, 6, 7, 0, 1, 2}, 0), 4);
+    EXPECT_EQ(Solution::searchRotate({5, 1, 3}, 5), 0);
     EXPECT_EQ(Solution::searchRotate({4, 5, 6, 7, 0, 1, 2}, 3), -1);
     EXPECT_EQ(Solution::searchRotate({1}, 0), -1);
 }
